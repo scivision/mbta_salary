@@ -13,6 +13,9 @@ The `Washingtonian published a 9 Dec 2015 article <http://www.washingtonian.com/
 by Luke Mullins and Michael Gaynor that explores at length issues with WMATA and 
 overtime abuses.
 
+Note: I exclude Backpay as it represents a retroactive increase in base salary for the previous year.
+Backpay is last year's pay, paid out this year.
+
 .. contents::
 
 .. image:: plots/2015hist.png
@@ -59,7 +62,7 @@ all     256080   82319  118860   5e+08  6468
 
 yields plots and the output:
 
-Highest earning MBTA staff $235194 in 2014 was a Technician,Power Equip.
+Highest earning MBTA staff $235194 in 2014 was a Technician,Power Equip, including estimated $145401 overtime.
 
 ======  ======  ======  ======  ======  ====
 type       max  median    90th  subtot   num
