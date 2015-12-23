@@ -8,32 +8,28 @@ pdftotext -layout Wages2014.pdf
 
 there are more efficient ways to index, but this is a rather small dataset.
 
-examples:
----------
-2014 salary:
-python salary.py Wages2014.txt 2014
-
-2013 salary:
-python salary.py Wages2013.txt 2013
+examples: see README.rst
 
 tested with Python 3.5
 Michael Hirsch
 """
 from pathlib import Path
 from numpy import ones
-from pandas import read_csv,DataFrame,option_context
+from pandas import read_excel,read_csv,DataFrame,option_context
 from matplotlib.pyplot import subplots,figure
 import seaborn as sns
-sns.set_context('talk',font_scale=1.5)
+sns.set_context('talk',font_scale=1.4)
 
 def parsefilt(fn,year,lowerthres):
     fn = Path(fn)
 
-    assert fn.suffix=='.txt', 'you must use pdftotext -layout *.pdf and use the .txt file in this program'
+    assert fn.suffix in ('.txt','.xls','.xlsx'), 'you must use a spreadsheet file or the PDF converted to text as per README.rst'
 
     #janky column spacing, require at least two spaces.
     #http://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
-    if year == 2014:
+    if year == 2015: # NOTE this is a preliminary result using in-progess CY2015 data
+        data = procxl(fn)
+    elif year == 2014:
         data = read_csv(fn,sep='\s{2,}',skiprows=2,engine='python',header=None, usecols=(2,3,4,5,6),
             names=['DeptID','Descr','Title','ProjSal','Salary'])
     elif year == 2013:
@@ -84,8 +80,8 @@ def parsefilt(fn,year,lowerthres):
     st.loc['all',:] = doplot(data,evry1,'all',lowerthres,ax[0,4])
 #%% finish up
     [a.set_ylabel('Number of occurrences') for a in ax[:,0]]
-    [a.set_xlabel('{} Salary [$USD]'.format(year)) for a in ax[1,:]]
-    fg.suptitle('{} MBTA salary histograms'.format(year))
+    [a.set_xlabel('{} Salary [$1000 USD]'.format(year)) for a in ax[1,:]]
+    fg.suptitle('{} MBTA salary histograms'.format(year),fontsize='xx-large')
     fg.tight_layout()
     fg.subplots_adjust(top=0.93)
 
@@ -105,14 +101,34 @@ def parsefilt(fn,year,lowerthres):
 
     return st,data,{'maint':maint,'police':police,'signals':signals}
 
+def procxl(fn):
+    """
+    This function is for interim 2015 MBTA salary data--format may change in whole-year 2015 data.
+
+    Note: at this time I don't include Backpay as by my current understanding,
+    it is an increase in base salary that was backdated. It's for the previous year,
+    but paid in the current year.
+
+    Michael Hirsch
+    """
+
+    xldat = read_excel(str(fn),sheetname=0,header=0,skip_footer=1,
+                      parse_cols='B:E,G:H,J')
+    data = DataFrame(columns=['DeptID','Descr','Title','ProjSal','Salary'])
+
+    data[['DeptID','Descr','Title','ProjSal']] = xldat[['DeptID','Descr','Job Title','Annual Rate']]
+
+    data['Salary'] = data['ProjSal'] + xldat['Overtime']
+
+    return data
 
 def doplot(data,ind,saltype,thres,ax):
 #%% for analysis, remove new trainees arbitrarily chosen making less than threshold
     sal = data['Salary'][ind]
     sal = sal[sal>thres]
 #%% plot
-    sal.hist(ax=ax,bins=16)
-    ax.set_xlim(0,250e3)
+    (sal/1000).hist(ax=ax,bins=16)
+    ax.set_xlim(0,260)
     ax.set_title('{}'.format(saltype),fontsize='xx-large')
 
     return sal.max(), sal.median(), sal.quantile(.9),sal.sum(),ind.sum()
