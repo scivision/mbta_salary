@@ -94,10 +94,12 @@ def parsefilt(fn,year,lowerthres):
     except KeyError:
         print('\nhighest earning MBTA staff ${:.0f} in {} was a {}'.format(maxsalary,year,maxearner['Title']))
 #%%
-    ax=figure().gca()
+    fg=figure()
+    ax=fg.gca()
     (st.ix[:-1,'subtot']/1e8).sort_values().plot(kind='bar')
     ax.set_ylabel('expenditure [$10M]')
     ax.set_title('MBTA {} salary expenditure by category'.format(year))
+    fg.subplots_adjust(bottom=0.15)
 
     return st,data,{'maint':maint,'police':police,'signals':signals}
 
