@@ -7,6 +7,8 @@ for interesting aspects of the data.
 
 For example, in 2014, the top MBTA earner was a Technician with an estimated $145 K of overtime on top of an $89 K salary.
 
+.. contents::
+
 .. image:: mbta_salary_histogram.png
     :alt: MBTA salary histogram by category
 
@@ -37,8 +39,13 @@ rest    220000   86463  129061   1e+08  1132
 all     235194   89251  123618   5e+08  6332
 ======  ======  ======  ======  ======  ====
 
-One-time setup
-==============
+Obtaining Salary Data
+=====================
+You will need to download and convert the salary data first. Each year's format is a little
+different.
+
+2014 Salary Data
+----------------
 
 1. `Download 2014 MBTA salary data <http://www.mbta.com/uploadedfiles/Smart_Forms/News,_Events_and_Press_Releases/Wages2014.pdf>`_
 
@@ -46,4 +53,15 @@ One-time setup
 
     pdftotext -layout Wages2014.pdf
 
+2013 Salary Data
+----------------
+
+1. `Download 2013 MBTA salary data <http://www.mbta.com/uploadedfiles/Smart_Forms/News,_Events_and_Press_Releases/FOIA%2014-11%20final.pdf>`_
+
+2. Extract text from PDF, using `pdftotext <https://en.wikipedia.org/wiki/Poppler_%28software%29#poppler-utils>`_::
+
+    pdftotext -layout "FOIA 14-11 final.pdf"
+
+3. The last three lines of this .txt file are missing a space between the salary and "2013". 
+Just open in a text editor and manually add one additional space before 2013 in these last three lines.
 
