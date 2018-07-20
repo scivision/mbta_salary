@@ -19,7 +19,7 @@ The Washingtonian published a 9 Dec 2015
 [article](http://www.washingtonian.com/blogs/capitalcomment/transportation/why-does-metro-suck-dangerous-accidents-escalator-outages.php)
 by Luke Mullins and Michael Gaynor that explores at length issues with WMATA and overtime abuses.
 
-Note: I exclude Backpay as it represents a retroactive increase in base salary for the previous year. 
+Backpay is excluded as it represents a retroactive increase in base salary for the previous year. 
 Backpay is last year's pay, paid out this year.
 
 
@@ -84,25 +84,28 @@ Equip, including estimated $145401 overtime.
 
 ### MBTA 2013 Salary
 
+```sh
 ./salary.py "FOIA 14-11 final.txt" 2013
+```
 
 yields plots and the output:
 
 Highest earning MBTA staff $238770 in 2013 was a General Manager
 
- type   | max     | median  | 90th    | subtot  | num   |
-+========+=========+=========+=========+=========+=======+
-| signal | 164161  | 109078  | 122121  | > 1e+07 | > 139 |
- police | 205400  | 108173  | 162941  | > 3e+07 | > 245 |
- maint  | 209113  | > 87132 | 113655  | > 1e+08 | 1705  |
- ops    | 127287  | > 82337 | > 98121 | > 1e+07 | > 131 |
- heavy  | 154684  | > 72266 | > 99978 | > 5e+07 | > 654 |
- bus-ft | 192440  | > 69327 | > 87284 | > 9e+07 | 1279  |
- subway | 133214  | > 66729 | > 87589 | > 3e+07 | > 517 |
- bus-pt | > 53263 | > 34434 | > 42247 | > 1e+07 | > 358 |
- rest   | 238770  | > 78120 | 112847  | > 9e+07 | 1098  |
- all    | 238770  | > 75818 | 108951  | > 5e+08 | 6126  |
-+
+ type   | max     | median  | 90th    | subtot  | num   
+--------|---------|---------|---------|---------|------
+ signal | 164161  | 109078  | 122121  | > 1e+07 | > 139 
+ police | 205400  | 108173  | 162941  | > 3e+07 | > 245 
+ maint  | 209113  | > 87132 | 113655  | > 1e+08 | 1705  
+ ops    | 127287  | > 82337 | > 98121 | > 1e+07 | > 131 
+ heavy  | 154684  | > 72266 | > 99978 | > 5e+07 | > 654 
+ bus-ft | 192440  | > 69327 | > 87284 | > 9e+07 | 1279  
+ subway | 133214  | > 66729 | > 87589 | > 3e+07 | > 517 
+ bus-pt | > 53263 | > 34434 | > 42247 | > 1e+07 | > 358 
+ rest   | 238770  | > 78120 | 112847  | > 9e+07 | 1098  
+ all    | 238770  | > 75818 | 108951  | > 5e+08 | 6126  
+
+
 ## Obtaining Salary Data
 
 You will need to download and convert the salary data first. 
@@ -110,7 +113,7 @@ Each year's format is a little different.
 
 ### 2015 Salary Data
 
-I obtained this data from Matthew Rocheleau, the Boston Globe staff reporter on the 22 Dec 2015 
+We obtained this data from Matthew Rocheleau, the Boston Globe staff reporter on the 22 Dec 2015 
 [MBTA overtime article](http://www.bostonglobe.com/2015/12/21/mbta-employees-who-will-make-more-than-this-year/u6BUkDr6EawQ7dlHx9bZQP/story.html).
 We anticipate a request for the whole year 2015 data once we're into 2016.
 

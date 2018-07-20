@@ -1,6 +1,10 @@
+.pytest_cache/
 .mypy_cache/
 data/
 
+
+*.pdf
+*.txt
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
