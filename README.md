@@ -39,7 +39,7 @@ it useful to request prior years data.
 ### 2015 MBTA Salary
 
 ```sh
-./salary.py EMP-2015-Gross-Bpay-Ovt.xlsx 2015
+MBTAsalary EMP-2015-Gross-Bpay-Ovt.xlsx 2015
 ```
 
 yields plots and the output:
@@ -64,7 +64,7 @@ including estimated $171257 overtime.
 ### 2014 MBTA Salary
 
 ```sh
-./salary.py Wages2014.txt 2014
+MBTAsalary Wages2014.txt 2014
 ```
 
 yields plots and the output:
@@ -89,7 +89,7 @@ Equip, including estimated $145401 overtime.
 ### MBTA 2013 Salary
 
 ```sh
-./salary.py "FOIA 14-11 final.txt" 2013
+MBTAsalary "FOIA 14-11 final.txt" 2013
 ```
 
 yields plots and the output:

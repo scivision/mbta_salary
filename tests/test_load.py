@@ -18,7 +18,7 @@ def getfile(rawfn: Path):
         urllib.request.urlretrieve(URL2014, rawfn)
 # %% convert to text
     try:
-        subprocess.check_call(['pdftotext', '-h'], stdout=subprocess.DEVNULL)
+        subprocess.check_call(['pdftotext', '-h'])
     except FileNotFoundError as e:
         raise FileNotFoundError(f'You must install Poppler Utils pdftotext.    {e}')
 
