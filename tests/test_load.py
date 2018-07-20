@@ -3,7 +3,7 @@ import pytest
 import urllib.request
 from pathlib import Path
 import subprocess
-import mbtaalary as ms
+import mbtasalary as ms
 
 URL2014 = 'http://www.mbta.com/uploadedfiles/Smart_Forms/News,_Events_and_Press_Releases/Wages2014.pdf'
 
@@ -37,6 +37,8 @@ def test_ld():
         getfile(rawfn)
 
     stats, data = ms.parsefilt(txtfn, 2014)
+
+    assert data.shape == (6331, 5)
 
 
 if __name__ == '__main__':
