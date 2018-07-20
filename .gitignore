@@ -1,3 +1,4 @@
+.mypy_cache/
 data/
 
 # Byte-compiled / optimized / DLL files
