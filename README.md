@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/scivision/mbta_salary.svg?branch=master)](https://travis-ci.com/scivision/mbta_salary)
+[![Coverage Status](https://coveralls.io/repos/github/scivision/mbta_salary/badge.svg?branch=master)](https://coveralls.io/github/scivision/mbta_salary?branch=master)
 
 # MBTA Salary Analysis
 

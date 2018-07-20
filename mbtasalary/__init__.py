@@ -37,8 +37,9 @@ def parsefilt(fn: Path, year: int, lowerthres: float=0.) -> Tuple[pd.DataFrame, 
         fg = figure(figsize=(25, 12))
         ax = fg.subplots(2, 5, sharex=True)
     else:
-        ax = np.ndarray([[None]*5,
-                         [None]*5])
+        ax = [[None]*5,
+              [None]*5]
+        ax = np.asarray(ax)
 # %% easy case--police salary
     police = data['DeptID'] == 741  # by quick inspection of text file
     st.loc['police', :] = doplot(data, police, 'police', lowerthres, ax[0, 0])
