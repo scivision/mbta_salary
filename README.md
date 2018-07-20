@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/scivision/mbta_salary.svg?branch=master)](https://travis-ci.com/scivision/mbta_salary)
+
 # MBTA Salary Analysis
 
 Year 2015 data thanks to Matthew Rocheleau, the Boston Globe staff reporter on the 
