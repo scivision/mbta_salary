@@ -14,6 +14,7 @@ Michael Hirsch
 """
 from argparse import ArgumentParser
 import pandas as pd
+
 try:
     from matplotlib.pyplot import show
 except ImportError:
@@ -26,10 +27,8 @@ def main():
 
     p = ArgumentParser(description="MBTA salary data plotter/parser")
     p.add_argument('fn', help='type filename to analyze e.g. wages2014.txt')
-    p.add_argument('year', help='type year of data [2013 2014] so we can pick the right parser',
-                   type=int, nargs='?', default=2014)
-    p.add_argument('-l', '--lowerthreshold',
-                   help='[dollars] lower salary threshold', type=float, default=0)
+    p.add_argument('year', help='type year of data [2013 2014] so we can pick the right parser', type=int, nargs='?', default=2014)
+    p.add_argument('-l', '--lowerthreshold', help='[dollars] lower salary threshold', type=float, default=0)
     p = p.parse_args()
 
     stats, data = ms.parsefilt(p.fn, p.year, p.lowerthreshold)

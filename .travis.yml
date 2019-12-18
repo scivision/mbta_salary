@@ -10,9 +10,9 @@ addons:
     packages:
     - poppler-utils
 
-install: pip install .[tests]
+install: pip install .[tests,lint]
 
 script:
-- pytest 
+- pytest
 - flake8
 - mypy .
