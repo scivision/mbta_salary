@@ -1,7 +1,5 @@
 # MBTA Salary Analysis
 
-[![Build Status](https://travis-ci.com/scivision/mbta_salary.svg?branch=master)](https://travis-ci.com/scivision/mbta_salary)
-[![Python versions (PyPI)](https://img.shields.io/pypi/pyversions/mbtasalary.svg)](https://pypi.python.org/pypi/mbtasalary)
 [![PyPi Download stats](http://pepy.tech/badge/mbtasalary)](http://pepy.tech/project/mbtasalary)
 
 Note: Massachusetts Comptroller now has an
